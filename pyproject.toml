@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "rapidsis"
+version = "0.9.8"
+description = "Automatic report generation from miniSEED files"
+authors = [
+]
+
+readme = "README.md"
+requires-python = "~=3.12"
+
+[project.scripts]
+rapidsis = "rapidsis.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rapidsis*"]
+exclude = ["db*", "raw*", "latex*", "logos*", "bones*", "dumps*", "Records*", "logarch*", "libmarrow*", "templates*", "reports_html*", "latex_output*"]
+
+[tool.setuptools.package-data]
+rapidsis = ["templates/*", "logos/*"]
+
+[tool.black]
+line-length = 72
+#target-version = ['py37']
+include = '\.pyi?$'

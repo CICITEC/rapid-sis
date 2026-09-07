@@ -1,0 +1,51 @@
+#{% set name = "rapidsis" %}
+#{% set version = "0.9.8" %}
+
+package:
+  name: rapidsis
+  version: "0.9.8"
+
+source:
+  #url:
+  #sha256:
+  path: ..
+
+build:
+  noarch: python
+  entry_points:
+    - rapidsis = rapidsis.__main__:main
+  script:
+    - "{{ PYTHON }} -m pip install . --no-deps -vv"
+    - mkdir "{{ PREFIX }}\Menu"
+    - copy "{{ RECIPE_DIR }}\menu.json" "{{ PREFIX }}\Menu\{{ PKG_NAME }}_menu.json"
+    - copy "{{ RECIPE_DIR }}\rapidsis.ico" "{{ PREFIX }}\Menu\{{ PKG_NAME }}.ico"
+  menu: true
+  number: 0
+
+requirements:
+  host:
+    - python ~=3.12
+    - setuptools >=68
+    - wheel
+  run:
+    - obspy
+    - cartopy
+    - pytest
+    - pytest-json
+    - pytest-json-report
+    - geographiclib
+    - basemap
+    - pandas
+    - tectonic
+    - menuinst
+
+  app:
+    entry: rapidsis
+  icon: icon.JPEG
+  type: desk
+  own_environment: False
+
+  about:
+    home: https://github.com/CICITEC
+  summary: Automatic generation of seismic reports from miniSEED files.
+  #  license: GPLv3

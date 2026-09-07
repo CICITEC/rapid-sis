@@ -1,0 +1,95 @@
+\documentclass{article}
+
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{transparent}
+\usepackage{authblk}
+\usepackage{subcaption}
+
+\graphicspath{{$LogosDir}{$OutputDir}}
+
+\title{Automatic Seismic Activity Report}
+\author{Centro de Investigación Científica y Tecnológica (CICITEC)}
+\affil{Universidad Santa María La Antigua}
+%date can also be changed to match the date
+\date{$Timestamp}
+
+% Definition of \maketitle
+\makeatletter
+\def\@maketitle{
+\centering
+\begin{center}
+{\Huge \bfseries \sffamily \@title }\\[4ex]
+{\Large  \@author}\\[4ex]
+\@date\\[8ex]
+\end{center}}
+\makeatother
+
+\begin{document}
+\maketitle
+%\center
+\tableofcontents
+\begin{table}[h]
+    \caption{Seismic event at a glance}
+    \centering
+\begin{subtable}[c]{0.5\textwidth}
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Duration & $Duration \\ \hline
+        Filter & $FilterType \\ \hline
+    \end{tabular}
+\end{subtable}
+\begin{subtable}[c]{\textwidth}
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+          Name & PGA & PGV & PGD & SA .2s & SA 1s\\
+        \hline
+        \hline
+         $Comp0
+         $Comp1
+         $Comp2
+         $Comp3
+         $Comp4
+         $Comp5
+    \end{tabular}
+\end{subtable}
+\end{table}
+\newpage
+
+\section{Time histories}
+\subsection{Accelerogram}
+\begin{center}
+\includegraphics[width = 0.8\linewidth]{acceleration_$RecordName}\\[8ex]
+\end{center}
+
+\subsection{Velocigram}
+\begin{center}
+\includegraphics[width = 0.8\linewidth]{velocity_$RecordName}
+\end{center}
+
+\subsection{Displacement time histories}
+\begin{center}
+\includegraphics[width = 0.8\linewidth]{displacement_$RecordName}
+\end{center}
+\newpage
+
+\section{5\% damped response spectra}
+\begin{center}
+\includegraphics[width = 0.5\linewidth]{spectras_$RecordName}
+\end{center}
+\newpage
+
+\section{Station and epicenter}
+\begin{center}
+\includegraphics[width = 0.6\linewidth]{map_$RecordName}
+\end{center}
+
+\end{document}

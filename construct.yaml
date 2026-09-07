@@ -1,0 +1,9 @@
+name: rapidsis-env
+version: 0.9.8
+channels:
+  - earthquaker
+  - conda-forge
+specs:
+  - python~=3.12
+  - rapidsis
+initialize_by_default: true
