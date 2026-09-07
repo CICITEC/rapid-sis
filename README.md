@@ -14,7 +14,7 @@ conda build recipe
 conda install --use-local rapidsis -y
 ```
 ### Windows
-Run the installer available at: []().
+Run the installer available at: [RAPID-SIS Releases](https://github.com/CICITEC/RAPID-SIS-Releases/releases/).
 
 ## Using
 ### Terminal
@@ -49,7 +49,6 @@ In this case the event folder generated will be `dummy event` with the path `~/r
 
 ### GUI
 The gui can be launched by running `rapidsis` with no flags or by launching through `Anaconda Navigator`.
-![RAPID-SIS GUI](./imgs/gui.png)
 
 #### Options
 ##### Left
